@@ -15,4 +15,6 @@ Di seguito alcune schermate di come appaiono gli appunti su wxMaxima per Windows
 
 ![alt text](https://github.com/DanteCpp/Appunti-di-Elettronica-di-Potenza/blob/master/Screenshot3.png?raw=true)
 
+![alt text](https://github.com/DanteCpp/Appunti-di-Elettronica-di-Potenza/blob/master/Screenshot4.jpg?raw=true)
+
 Per una corretta visualizzazione è necessario wxMaxima 16.12.0 o superiore.
