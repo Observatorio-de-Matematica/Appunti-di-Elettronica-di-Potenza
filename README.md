@@ -5,6 +5,22 @@ Questi appunti sono stati realizzati in preparazione al mio esame di elettronica
 
 Ogni tipo di correzione o espansione è gradita. 
 
+Tavola dei Contenuti 
+====================
+* Raddrizzatori non Controllati
+  * Raddrizzatori a Singola Semionda
+    * Carico Puramente Resistivo
+    * Carico Intuttivo
+    * Carico Fortemente Capacitivo
+    * Carico Fortemente Induttivo
+  * Raddrizzatori a Doppia Semionda
+    * Carico Induttivo Commutazione Istantanea
+    * Carico Induttivo Commutazione non Istantanea
+    * Carico Fortemente Capacitivo
+* Radrizzattori Controllati
+* Convertitori DC-DC
+
+
 Di seguito alcune schermate di come appaiono gli appunti su wxMaxima per Windows.
 
 ![alt text](https://github.com/DanteCpp/Appunti-di-Elettronica-di-Potenza/blob/master/Screenshot1.png?raw=true)
