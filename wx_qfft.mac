@@ -108,7 +108,7 @@ spectrum1 (glist, nlw, ymax ) :=
     vvbars : makelist ( [discrete,
                   [[kkglist[i][1],0],[kkglist[i][1],kkglist[i][2]]]] ,
                       i,1,length (kkglist) ),
-    wxplot2d ( vbars, [y, 0, ymax], [style, [lines, nlw, 1]],
+    wxplot2d ( vbars, [y, 0, ymax], [style, [lines, nlw, 1]], grid2d,
                [ylabel, " "], [xlabel, " k "], [legend, false],
                 [gnuplot_preamble, "set grid;"] ) )$
                 
@@ -145,10 +145,10 @@ spectrum (glist, nlw, ymax, [klim] ) :=
           vvbars : cons([discrete,[[xval,0], [xval, yval]]], vvbars ) )),    
        
                           
-    wxplot2d ( vvbars, [x, n1-1, n2-1], [y, 0, ymax],
+    wxplot2d ( vvbars, [x, n1-1, n2-1], [y, 0, ymax], grid2d,
               [style, [lines, nlw, 1]],
                [ylabel, " "], [xlabel, " k "], [legend, false],
-                [gnuplot_preamble, "set grid;"] ) )$                
+                [gnuplot_preamble, "set grid"] ) )$                
                 
                 
 spectrum_eps (glist, nlw, ymax, fname, [klim] ) :=
@@ -184,7 +184,7 @@ spectrum_eps (glist, nlw, ymax, fname, [klim] ) :=
           vvbars : cons([discrete,[[xval,0], [xval, yval]]], vvbars ) )),    
        
                           
-    wxplot2d ( vvbars, [x, n1-1, n2-1], [y, 0, ymax],
+    wxplot2d ( vvbars, [x, n1-1, n2-1], [y, 0, ymax], grid2d,
               [style, [lines, nlw, 1]],
                [ylabel, " "], [xlabel, " k "], [legend, false],
                 [gnuplot_preamble, "set grid;"],
