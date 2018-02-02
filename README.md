@@ -17,9 +17,17 @@ Tavola dei Contenuti
     * Carico Induttivo Commutazione Istantanea
     * Carico Induttivo Commutazione non Istantanea
     * Carico Fortemente Capacitivo
-* Radrizzattori Controllati
+  * Raddrizzatori Trifase
+    * A Ponte Commutazione Istantanea 
+* Raddrizzatori Controllati
+  * Monofase a Ponte Commutazione non Istantanea 
 * Convertitori DC-DC
-
+  * Convertitore Abbassatore (buck)
+    * Modalità di Conduzione Discontinua
+  * Convertitore Elevatore (boost)
+  * Convertitore Abbassatore-Elevatore (buck-boost)
+  * Convertitore 4 quadranti
+  
 
 Di seguito alcune schermate di come appaiono gli appunti su wxMaxima per Windows.
 
