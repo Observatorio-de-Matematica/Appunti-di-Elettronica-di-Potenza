@@ -3,8 +3,6 @@ Appunti di elettronica di potenza realizzati con [wxMaxima](http://andrejv.githu
 
 Questi appunti sono stati realizzati in preparazione al mio esame di elettronica di potenza, non hanno alcuna pretesa di completezza o esattezza. I commenti sono stati scritti di getto senza badare alla chiarezza e l'eleganza della prosa. 
 
-Ogni tipo di correzione o espansione è gradita. 
-
 Tavola dei Contenuti 
 ====================
 * Raddrizzatori non Controllati
