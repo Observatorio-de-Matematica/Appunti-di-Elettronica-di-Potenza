@@ -1,0 +1,1268 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: title   start ]
+Elettronica di Potenza
+   [wxMaxima: title   end   ] */
+
+
+/* [wxMaxima: section start ]
+Raddrizzatori non Controllati
+   [wxMaxima: section end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Singola Semionda
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+I raddrizzatori a singola semionda non sono di grande utilità pratica,
+rappresentano comunque Interessanti casi di studio, vista la loro
+semplicità e la possibilità di trovare soluzioni analitiche in forma chiusa.
+La conoscenza dei raddrizzatori a singola semionda è fondamentale per
+lo studio di topologie più complesse.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: comment start ]
+NB. in tutte le sezioni che seguiranno assumeremo la tensione di ingresso 
+        essere nella forma: 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+v_s : sqrt(2)*V_s * sin(ω*t);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+       dove Vs è il valore efficace della tensione di ingresso. Il periodo del
+       segnale di ingresso è 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+T : 2*%pi / ω;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsubsect start ]
+Carico Puramente Resistivo
+   [wxMaxima: subsubsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Analiziamo ora il caso di raddrizzatore a singola semionda con carico 
+puramente resistivo.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+Per semplice ispezione del circuito è facile notare che il diodo è
+interdetto solo quando la tensione di ingresso è minore di zero.
+Questo perche assumendo il diodo in conduzione a partire dall'istante
+t=0 e pertanto sostituendo il diodo con un corto circuito, vediamo che
+la corrente i_s circolante nella maglia è direttamente proporzionale e
+in fase con la tensione di ingresso. Quindi la corrente è tentata di
+cambiare segno quando v_s diventa negativa, ma la corrente non può
+circolare nel verso opposto a causa del diodo. Pertanto nel semiperiodo
+in cui la tensione in ingresso e negativa la corrente è nulla.
+Essendo la tensione di uscita v_d proporzionale alla corrente
+nella maglia, avremmo che,
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+v_d : if v_s > 0 then v_s else 0$
+V_s : 1$ R : 1$ ω : 1$
+wxplot2d([v_s,v_d],[t,0,4*%pi],[legend,"input voltage","output voltage"]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Calcoliamo ora nel caso generale, il valore medio della tensione in uscita.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kill(R,V_s,ω)$ T : 2*%pi/ω$
+assume(ω > 0)$
+integrate(v_s,t,0,T/2)/T;
+float(%);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Abbiamo quindi in uscita una tensione media pari al 45% del valore efficace 
+della tensione di ingresso. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: subsubsect start ]
+Carico Induttivo
+   [wxMaxima: subsubsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Analizziamo ora il caso di un raddrizzatore con carico non puramente 
+resistivo, aggiungendo un induttore in serie alla resistenza di carico 
+del circuito precedente.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+Anche in questo caso assumiamo il diodo essere polarizzato direttamente a 
+partire da t=0. Se facessimo il contrario arriveremmo ad una contraddizione
+che ci porterebbe a concludere che la nostra ipotesi di diodo inizialmente 
+interdetto non sia valida. 
+Detto ciò, sostituiamo il circuito equivalente del diodo in conduzione, cioè 
+un c.c. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+In questo caso la corrente non è linearmente proporzionale alla tensione di 
+ingresso come nel caso precedente. Quindi determinare il punto di inversione 
+della corrente non è banale. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: comment start ]
+Scrivendo la legge di Kirchhoff alla maglia, otteniamo la seguente equazione 
+differenziale per la corrente i_s.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kvl : v_s = L*'diff(i_s,t)+R*i_s;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Risolvendo il problema di Cauchy, con condizione iniziale i_s(0)=0, otteniamo
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+ode2(kvl,i_s,t)$
+sol: ic1(%, t=0,i_s= 0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+l'espressione della corrente di maglia non è banale, come ci aspettavamo.
+Per avere un'idea dell'andamento di questa corrente proviamo a plottarla
+in un periodo del segnale di ingresso. 
+
+NB. i valori dei parametri sono stati esagerati per evidenziare l'andamento
+    della corrente, altrimenti troppo piccola. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_s : 1.0$ L : 0.01$ R : 1.0$ ω : 2*%pi*50$
+i_s : rhs(sol)$
+wxplot2d([v_s,i_s],[t,0,2*%pi/ω],[legend,"input voltage","current"]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Come vediamo dal grafico, la corrente non è in fase con la tensione, come nel caso 
+precedentemente analizzato. In generale essa sarà maggiore di zero per tutto il 
+semiperiodo positivo della v_s, ma non si annullerà insieme a quest'ultima. L'inversione 
+della corrente avverrebbe in un istante t_0 maggiore di T/2. Ma naturalmente la 
+corrente non può scorrere nel verso opposto a causa del diodo, quindi per t maggiore 
+di t_0 il diodo si interdice e la v_d smette di inseguire la tensione di ingresso. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+v_d : if i_s > 0 then v_s else 0$
+T : 2*%pi/ω$
+wxplot2d([v_s,v_d],[t,0,T],[legend,"input voltage","output voltage"]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Possiamo calcolare numericamente le radici della corrente e quindi l'istante t_0
+in cui il diodo entra in interdizione. Per questa specifica scelta dei parametri
+si ha:  
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+t_0 : find_root(i_s,t,0.01,T);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+È facile osservare che la tensione media di uscita è in questo caso minore 
+rispetto al reddrizzatore con carico puramente resistivo, questo perche alla 
+media contribuisce anche l'area negativa sottesa alla curva nel tempo compreso 
+tra T/2 e t_0. Calcolando la media,
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kill(V_s,L,R,T,ω,t_0)$
+T : 2*%pi/ω$
+assume(t_0 > T/2, t_0 > 0)$
+integrate(v_s,t,0,t_0)/T$
+combine(%);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+osserviamo che per ωt_0 uguale a π il coseno vale -1, e la relazione si riduce 
+alla media nel caso di carico puramente resistivo. Infatti, l'argomento del coseno 
+è pari a pigreco quando t_0 è pari a T/2. In altri termini, quando la corrente è 
+in fase con la tensione di ingresso e il diodo si interdice in T/2. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+float(%);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Da quest'ultima relazione, vediamo che la tensione media in uscita è in generale 
+minore del 45% del valore efficace in ingresso.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: subsubsect start ]
+Carico Fortemente Capacitivo
+   [wxMaxima: subsubsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Un generatore di tensione continua può essere usato per modellare carichi 
+fortemente capacitivi. Per rendersene conto è sufficiente esaminare l'
+equazione caratteristica del condensatore
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+i_c = C*'diff(v_c,t);
+%/C;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+calcolando il limite per C che tende ad infinito, si ottiene 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+limit(%,C,infinity);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Se la derivata di v_c è nulla, allora v_c è costante. In altri termini, se
+il condensatore è molto grande la tensione ai suoi capi tenderà a restare 
+costante, indipendentemente dalla corrente. 
+
+Occupiamoci ora di analizzare il circuito in figura 4, dove il resistore è stato
+sostituito da un generatore di tensione costante, rappresentante un capacitore 
+molto grande.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+Assumiamo il diodo essere inizialmente interdetto. Allora non circola corrente
+nel circuito, la tensione su l'anodo è v_s mentre quella sul catodo Ed, dal momento 
+che non si instaura una tensione autoindotta nell'induttore. 
+Tale situazione di polarizzazione, persiste pertanto che v_s è minore di Ed, quando 
+v_s supera Ed in ampiezza, il diodo entra in conduzione. 
+Seguendo un procedimento simile al caso di carico induttivo, scriviamo l'equazione 
+alla maglia
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kill(i_s,L,E_d)$
+kvl : v_s = L * 'diff(i_s,t)+E_d;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Cerchiamo ora il punto di intersezzione tra la retta e la sinusoide
+in modo da utilizzare tale punto come condizione al contorno per 
+l'equazione differenziale alla corrente.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+solve(v_s=E_d,t)$
+t_1 : rhs(%[1]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+A noi serve la prima intersezzione tra il seno e la retta orizzontale
+quindi non ci preocupiamo delle altre soluzioni perse. 
+Ora risolviamo la ode, con la condizione iniziale i_s(t_1)=0.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+ode2(kvl,i_s,t);
+sol: ic1(%, t=t_1,i_s= 0)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+La soluzione particolare è piena di funzioni trigonometriche inverse, 
+la cosa migliore per capirne l'andamento è settare qualche parametro 
+e plottarla. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_s : 1.0$ L : 0.01$ E_d : 0.75$ ω : 2*%pi*50$
+i_s : rhs(sol)$
+wxplot2d([v_s,i_s,E_d],[t,0,2*%pi/ω],[legend,"input voltage","current","battery voltage"]
+                                    ,[gnuplot_preamble, "set key bottom left"]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Come abbiamo detto, il diodo entra in conduzzione solo per t > t_1, questa condizione
+perdura sino a che la corrente non cerca di cambiare segno, quando ciò avviene il 
+diodo si interdice e la corrente si annulla. 
+Durante l'interdizione la tensione di uscita è pari a quella fornita dalla batteria di carico.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+v_L : L*diff(i_s,t)$
+v_d : if (t > t_1 and i_s > 0) then E_d+v_L else E_d$
+wxplot2d([v_s,v_d],[t,0,2*%pi/ω],[legend,"input voltage","output voltage"]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsubsect start ]
+Carico Fortemente Induttivo L=0
+   [wxMaxima: subsubsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Analogamente a quanto detto per il carico fortemente capacitivo, un generatore costante 
+di corrente può essere usato per modellare un carico fortemente induttivo. 
+Dalla relazione caratteristica dell'induttore 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kill(L,v_L)$
+v_L = L * 'diff(i_L,t);
+%/L;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+limit(%,L,infinity);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Quindi un induttore molto grande tende a mantenere costante la corrente. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: comment start ]
+Analizziamo ora il circuito di figura 5, l'induttanza L rapresenta quella interna del generatore, 
+mentre l'aggiunta del diodo D2 si fa assolutamente necessaria, altrimenti la corrente Id non avrebbe
+un percorso di circolazione quando il diodo 1 si interdice. 
+Il diodo D2 è comunemente noto come, diodo di libera circolazione. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+Consideriamo prima il semplice caso in cui L= 0. Levando l'induttanza parassita del generatore
+il circuito si riduce ad un semplice raddrizzatore in cui la commutazione dei diodi avviene 
+istantaneamente. 
+Assumendo D1 in conduzzione a partire dall'istante t=0, la tensione di uscita segue perfettamente 
+l'ingresso, mentre la corrente i_s è uguale alla Id. Durante il semiperiodo negativo della v_s, D1
+si interdice e D2 entra in conduzzione, consentendo il passaggio della Id. Ma essendo il diodo 
+ideale non ci sarà cadutta di potenziale ai suoi capi, quindi la v_d sarà nulla durante tutto il 
+secondo semiperiodo. Naturalmente la i_s è nulla quando D1 è interdetto, essendo idealmente 
+un circuito aperto.  
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_s : 1.0$ I_d : 0.5$ ω : 2*%pi*50$
+v_d : if v_s > 0 then v_s else 0$
+i_s :  if v_s > 0 then I_d else 0$ 
+wxplot2d([v_s,v_d,i_s],[t,0,2*%pi/ω],[legend,"input voltage","output voltage","absorbed current"]
+                                    ,[gnuplot_preamble, "set key bottom left"]);
+kill(V_s,I_d,ω,i_s,v_d)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsubsect start ]
+Commutazione non Istantanea L≠0
+   [wxMaxima: subsubsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Consideriamo ora il caso di L≠0. Con la presenza dell'induttanza parassita, la commutazione da 
+conduzione ad interdizzione dei diodi non avverrà istantaneamente al cambio di polarità della 
+tensione di ingresso. In altri termini, la corrente assorbita dal carico non potrà variare bruscamente come
+nel caso ideale, quindi ci sarà un certo tempo, diciamo u/ω che la corrente impiegerà a passare da 0 a il
+suo valore massimo Id. 
+E' come se durante la commutazione tutti i diodi siano in conduzzione, per studiare questa situazione 
+ridisegnamo il circuito, sostituendo ai diodi il loro circuito equivalente in conduzzione. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+Questo circuito è valido solo per i_s minore di Id. Osserviamo subito che nel diodo D1 circola la corrente i_s
+mentre in D2 circola la differenza i_s-Id, essendo D2 ideale esso forma un corto circuito ai capi del carico, 
+quindi la tensione di uscita è nulla durante tutto il tempo di commutazione. 
+Dalla relazione per la corrente in ramo D2 si nota anche che la i_s può crescere solo sino a Id, altrimenti la 
+corrente attraverso D2 cambierebbe segno e questo è impossibile. 
+
+Scrivendo la legge di Kirchhoff alla maglia, possiamo ricavare l'andamento della corrente durante la 
+commutazione. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kvl : v_s = L*'diff(i_s,t);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+ode2(kvl,i_s,t)$
+sol: ic1(%, t=0,i_s= 0);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Plottiamo questo risultato, che come abbiamo detto è valido solo per i_s minore della corrente di 
+carico Id.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_s : 1.0$ I_d : 2.0$ ω : 2*%pi*50$ L : 0.001$
+i_son: rhs(sol)$
+wxplot2d([i_son,I_d],[t,0,2*%pi/ω],[legend,"commutation current","load current"]);
+kill(V_s,I_d,ω,i_s,v_d)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Terminata la commutazione D1 è in conduzione mentre D2 è interdetto, tutta la corrente Id assorbita dal 
+carico passa per D1, la tensione di uscita segue l'ingresso pertanto che v_s è positiva. Quando la tensione 
+di ingresso cambia segno, si entra nuovamente in una regione di commutazione descritta dal circuito di figura 6
+ma questa volta le condizioni iniziali dell'equazione differenziale sono diverse.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+ode2(kvl,i_s,t)$
+sol: ic1(%, t=%pi/ω,i_s= I_d)$
+i_soff : rhs(sol);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+All'istante della seconda commutazione, quando t=π/ω, la corrente assorbita dal carico i_s vale I_d, da la, decresce
+seguendo l'andamento descritto dll'equazione i_soff. Mettendo insieme i pezzi si ha
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+i_s : if i_son < I_d and v_s > 0 then i_son else
+        if v_s > 0 then I_d else 
+        if i_soff > 0 then i_soff else 0$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_s : 1.0$ I_d : 0.5$ ω : 2*%pi*50$ L : 0.001$
+wxplot2d([i_s,v_s],[t,0,2*%pi/ω],[legend,"absorbed current","input voltage"]);
+kill(V_s,I_d,ω,L)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Facendo il limite per L che tende a zero della i_s, il il tempo di commutazione si annullerebbe e la corrente 
+avrebbe un'andamento più brusco durante le commutazioni. 
+Per calcolare il tempo di commutazione si può giocare un po' con l'equazione alla maglia del circuito equivalente 
+per la commutazione. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kvl : kvl/L;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+integrando ambo i membri nell'intervallo di commutazione tra 0 e t_u, a destra risulta I_d perché la 
+corrente i_s va da 0 a I_d. Mentre a sinistra bisogna calcolare l'integrale del seno che magia magia 
+sarà un meno coseno.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+assume(t_u>0)$
+I_d=integrate(lhs(kvl),t,0,t_u)$
+combine(%);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Risolvento per il coseno dell'angolo di commutazione t_u*ω
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+solve(%,cos(t_u*ω))$
+cs : expand(%[1]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Dalla 50 si nota che se L=0 il coseno vale 1 è questo può succedere solo per t_u =0, cioè se la
+commutazione è istantanea.
+Ora possiamo graficare la tensione di uscita in funzione del tempo.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_s : 1.0$ I_d : 0.5$ ω : 2*%pi*50$ L : 0.001$
+t_u : rhs(solve(cs,t_u)[1])$
+v_d : if t < t_u or v_s < 0 then 0 else v_s$
+wxplot2d([i_s,v_s,v_d],[t,0,2*%pi/ω],[legend,"absorbed current","input voltage","output voltage"]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Riassumendo, la tensione di uscita vale zero durante la commutazione t<t_u e nel
+semiperiodo negativo della tensione di ingresso t &gt; π/ω = T/2. Quando il diodo 1 
+è in conduzione l'uscita segue perfettamente l'ingresso. La corrente non passa 
+bruscamente da 0 a Id o vice versa, perché la L ne ammorbidisce la variazione.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Monofase a Ponte di Diodi
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+I raddrizzatori non controllati a pote di diodi (o di Greatz) sono dei raddrizzatori a
+doppia semionda. Il circuito generale è rappresentato nel circuito seguente
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+La v_s e la L sono il circuito equivlalente della rete di alimentazione, seguiti da il 
+ponte di diodi e da un condensatore in parallelo al carico, necessario per il 
+livellamento del segnale di uscita (per ridurre il ripple).
+Questo genere di raddrizzatori sono usati nella pratica, dove non è necessario un 
+grande controllo della tensione sul carico, tuttavia come vedremo assorbono una 
+corrente fortemente distorta. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+v_s : sqrt(2)*V_s*sin(ω*t);
+T : 2*%pi / ω$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsubsect start ]
+Carico Induttivo Commutazione Istantanea
+   [wxMaxima: subsubsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Prima di avventurarci nell'analisi del circuito completo, esaminiamo prima alcuni 
+casi semplificati, nel circuito seguente abbiamo eliminato il condensatore di livellamento
+e collegato un carico fortemente induttivo in uscita.
+Occupiamoci prima del caso di commutazione istantanea della corrente L=0. 
+Per evidenziare la polarizzazione dei diodi, possiamo ridisegnare il circuito come in figura 8 
+dove abbiamo tolto l'impedenza del generatore e abbiamo raggruppato i diodi. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+Ipotizzando D1 in conduzione a partire da t=0, anche D3 è polarizzato direttamente quindi
+in conduzione mentre i diodi D2 e D4 sono interdetti. la v_d segue perfettamente l'ingresso
+sino a t=T/2, dove l'ingresso cambia polarità e i diodi dispari si interdicono mentre quelli
+pari entrano in conduzione. In questa situazione i_s sarà pari a -Id e la tensione di uscita sarà
+l'opposto della tensione di ingresso. Ne risulta una tensione di uscita pari al valore assoluto
+della tensione di ingresso (raddrizzata), e una corrente assorbita che varia istantaneamente da
+Id a meno Id tra un semiperiodo e l'altro.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_s : 1.0$ I_d : 0.5$ ω : 2*%pi*50$
+i_s : if v_s > 0 then I_d else -I_d$
+v_d : if v_s > 0 then v_s else -v_s$
+wxplot2d([v_s,v_d,i_s],[t,0,T],[legend,"input voltage","output voltage","absorbed current"]
+                                    ,[gnuplot_preamble, "set key bottom left"]);
+kill(V_s,I_d,ω,i_s,v_d)$
+
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Possiamo calcolare il valore medio della tensione in uscita, integrando la v_s in un semiperiodo e
+dividendo l'integrale per il "tempo" di integrazione. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+assume(ω>0)$
+V_d : 2/T * integrate(v_s,t,0,T/2);
+float(%);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Come ci aspettavamo la tensione media in uscita è pari al doppio della tensione media del
+raddrizzatore a singola semionda ideale. Ossia pari al 90% del valore efficace in ingresso.
+
+Per renderci conto della distorsione introdotta sulla rete da una corrente assorbita non
+sinusoidale, eseguiamo l'analisi di Fourier della corrente i_s. Essa ha simmetria dispari, di
+conseguenza il valore medio di tale corrente è nullo inoltre le componenti in coseno sono tutte 
+nulle e tutte le armoniche pari sono anch'esse nulle vista la simmetria di semionda.
+Passiamo quindi al calcolo della componente in seno delle armoniche,
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+assume(I_d > 0)$
+declare(k, integer)$
+I_sk : 2/T * (integrate(I_d*sin(ω*k*t),t,0,T/2)-integrate(I_d*sin(ω*k*t),t,T/2,T))/sqrt(2), expand;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Per plottare lo spettro utilizziamo una funzione scritta dal prof. Edwin L. Woollett (https://web.csulb.edu/~woollett/),
+contenuta nella libreria qfft.mac disponibile liberamente nel sito linkato. 
+Ho fatto qualche modifica a questa libreria per consentirne l'integrazione con wxmaxima.  
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+load("wx_qfft.mac")$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_s : 1.0$ I_d : 0.5$ ω : 2*%pi*50$
+spectrum(cons(0.0,makelist(ev(I_sk), k, 1, 18)),2.5,0.5);
+kill(V_s,I_d,ω,i_s,v_d)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Possiamo calcolare la distorsione armonica totale applicando la definizione. Si ha che il
+valore efficace della corrente Is=Id, quindi
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+I_s : I_d$
+I_s1 : I_sk, k = 1$
+
+THD : float(ratsimp(sqrt(I_s^2-I_s1^2)/I_s1));
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Il THD è pari al 48.34%, quindi abbiamo delle componenti distorcenti di non poco peso. Che 
+andranno ad inquinare la rete.  Dal grafico della corrente si vede che essa è in fase con l'armonica
+fondamentale, peché cambia alla stessa frequenza. Quindi il dispacement power factor è unitario 
+DPF = 1. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: subsubsect start ]
+Carico Induttivo Commutazione non Istantanea
+   [wxMaxima: subsubsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Facciamo un passo avanti verso la realtà, considerando la presenza di un'impedenza
+induttiva in serie al generatore in ingresso. Come abbiamo gia detto il generatore con la sua
+impedenza serie, si possono considerare come l'equivalente di Thevenin della rete a monte del
+raddrizzatore.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+Sulla stessa linea di quanto fatto nel paragrafo 1.1.4, nel caso per la commutazione non istantanea 
+del raddrizzatore a singola semionda, possiamo considerare due situazzioni opperative: quella di 
+commutazione e quella di normale opperattività. Nella prima, dobbiamo considerare tutti i diodi essere
+in conduzione pertanto che la corrente non raggiunge il suo valore massimo, nella seconda i diodi 
+si comportano normalmente. 
+Ridisegniamo il circuito evidenziando le due correnti di maglia i_u presenti durante la commutazione.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+Le due correnti di maglia i_u sono uguali considerando i diodi essere identici. Durante la prima commutazione
+la corrente di linea va da -Id a Id in un tempo t_u, la tensione di uscita sarà nulla dal momento che tutti i diodi 
+sono corto circuiti, alla fine della commutazione i diodi dispari saranno in conduzzione, mentre quelli pari 
+saranno interdetti. La tensione di uscita seguirà l'ingresso sino alla successiva commutazione che inizierà in T/2
+e finirà in T/2+t_u.  
+L'equazione de regola l'andamento di i_u è identica a quella vista per la corrente in commutazione nel paragrafo 
+1.1.4. Ma questa volta il contributo di questa corrente è doppio, cioè
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kvl : v_s = L*'diff(i_u,t)$
+sol : ode2(kvl,i_u,t)$
+
+i_uon: rhs(ic1(sol, t=0,i_u= 0));
+i_son : -I_d+2*i_uon$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+naturalmente i_son = -Id+2*i_u, perché ci sono due contributi di i_u, uno dovuto alla maglia superiore e uno a
+quella inferiore.  
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_s : 1.0$ I_d : 5.0$ ω : 2*%pi*50$ L : 0.001$
+wxplot2d([i_son,I_d],[t,0,T],[legend,"commutation current","load current"]);
+kill(V_s,I_d,ω,L)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Stesso discorso per la seconda commutazione, dove cambieranno solo le condizioni iniziali
+dell'equazione differenziale i_u(T/2)=0 e la i_s sarà uguale a I_d+2*i_u. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+i_uoff: rhs(ic1(sol, t=T/2,i_u= 0));
+i_soff : I_d+2*i_uoff$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Ineffetti avremmo potuto evitare la complicazione delle correnti cicliche, semplicemente 
+impostando le condizioni iniziali della ode in maniera più intelligente, piuttosto che i_s(0)=0
+avvremmo potuto calcolare la soluzione che risolve il problema i_s(0)=-I_d per la prima 
+commutazione e i_s(T/2)=I_d per la seconda. Ma ormai ciò che è fatto è fatto. 
+
+Come al solito, riuniamo i pezzi e plottiamo. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+i_s : if i_son < I_d and v_s > 0 then i_son else
+        if v_s > 0 then I_d else 
+        if i_soff > -I_d then i_soff else -I_d$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_s : 1.0$ I_d : 0.5$ ω : 2*%pi*50$ L : 0.001$
+wxplot2d([i_s,v_s],[t,0,T],[legend,"absorbed current","input voltage"]);
+kill(V_s,I_d,ω,L)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Per calcolare il tempo di commutazione, possiamo integrare ambo i membri della kvl, 
+a sinistra tra -Id e Id e a destra tra 0 e t_u. Il risultato sarà del tutto simile al quello 
+ottenuto per il raddrizzatore a singola semionda, se non per un fattore 2, dovuto 
+agli estremi dell'integrale a sinistra. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+assume(t_u>0)$
+integrate(L,i_u,-I_d,I_d)=integrate(lhs(kvl),t,0,t_u)$
+combine(%);
+/* [wxMaxima: input   end   ] */
+/* [wxMaxima: question  start ] */
+Question #1
+/* [wxMaxima: question  end   ] */
+/* [wxMaxima: answer  start ] */
+positive;
+/* [wxMaxima: answer  end   ] */
+
+
+/* [wxMaxima: input   start ] */
+solve(%,cos(t_u*ω))$
+cs : expand(%[1]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Maxima ha razzionalizzato portando il radice di 2 al numeratore, l'espressione e del tutto 
+simile a quella ottenuta in 1.1.5. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_s : 1.0$ I_d : 0.5$ ω : 2*%pi*50$ L : 0.001$
+v_d : if i_s < I_d and v_s > 0 then 0 else 
+          if i_s > -I_d and v_s < 0 then 0 else
+          if v_s > 0 then v_s else -v_s$
+wxplot2d([i_s,v_s,v_d],[t,0,2*T],[legend,"line current","input voltage","output voltage"]
+                                                              ,[gnuplot_preamble, "set key bottom left"]);
+kill(V_s,I_d,ω,L)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Precediamo con il calcolo della tensione media in uscita. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+assume(ω>0)$
+V_d : 2/T * integrate(v_s,t,t_u,T/2)$
+combine(%);
+float(%);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Osserviamo che quando il coseno vale 1 il valore medio in uscita raggiunge il 90% del
+valore efficace in ingresso, cioè si riduce al caso ideale. Infatti il coseno vale uno se il
+tempo di commutazione è nullo.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: subsubsect start ]
+Carico Fortemente Capacitivo
+   [wxMaxima: subsubsect end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: subsect start ]
+Raddrizzatori Trifase
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Considerando un sistema trifase simmetrico ed equilibrato, le espressioni delle tensioni di fase sono:
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+v_a : sqrt(2)*V*sin(ω*t)$
+v_b : sqrt(2)*V*sin(ω*t-2/3*%pi)$
+v_c : sqrt(2)*V*sin(ω*t+2/3*%pi)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V : 1/sqrt(2)$ ω : 1$
+wxplot2d([v_a,v_b,v_c],[t,0,2*%pi],[legend,"Va","Vb","Vc"]);
+kill(V,ω)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+È mostrato di seguito lo schema generale del raddrizzatore a sei impulsi, anche noto come raddrizzatore
+trifase a ponte. Nelle applicazioni industriali e dove sono disponibili tensioni trifase è preferibile usare
+un raddrizzatore trifase a ponte. Questo genere di raddrizzatori ha un minore ripple di uscita rispetto all'
+equivalente monofase inoltre è capace di trattare potenze maggiori.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+Come al solito è conveniente analizzare prima il caso ideale L=0 con carico fortemente induttivo e aggiungere 
+non idealità di volta in volta. Questo processo di analisi è usato di frequente nell'elettronica di potenza. È un po' 
+come separare l'analisi in due regimi di funzionamento diversi.
+Ridisegniamo il circuito senza le induttanze ed evidenziando la direzione di flusso delle correnti.  
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+Ci sono sempre due diodi in conduzione, uno del gruppo pari è uno del gruppo dispari. Nel gruppo superiore
+il diodo in conduzione è quello con la tensione anodica maggiore, mentre tra i diodi bassi conduce quello con
+la tensione catodica minore. Nel primo dodicesimo di periodo conducono D5 e D6, di conseguenza sul
+carico ci sarà la tensione v_c - v_b.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+v_d : if v_c > v_a and v_a > 0 then v_c-v_b 
+         elseif v_c > v_b and v_a > 0 then v_a-v_b 
+         elseif v_a > v_b and v_a > 0 then v_a-v_c 
+         elseif v_a > v_c then v_b-v_c 
+         elseif v_b > v_c then v_b-v_a 
+         elseif v_b > v_a then v_c-v_a 
+         else v_c-v_b$
+
+V : 1/sqrt(2)$ ω : 1$
+wxplot2d([v_a,v_b,v_c,v_d],[t,0,2*%pi],[legend,"Va","Vb","Vc","Vd"],[gnuplot_preamble, "set key bottom left"]);
+kill(V,ω)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Osserviamo che la tensione di uscita è in modulo sempre uguale alla concatenata con valore di picco √6V, dove
+√2V è il valore di picco della stellata. Osserviamo inoltre che il ripple di uscita è piuttosto baso rispetto al ponte
+monofase. La tensione di uscita in un periodo è costituita da sei impulsi di tensione, da ciò il circuito prende nome.
+Possiamo calcolare la tensione media lato continua integrando solo un inpulso piuttosto che tutti e sei, anzi possiamo 
+addirittura integrare in mezzo impulso visto che gli impulsi sono pari rispetto alla verticale passante per il loro punto 
+di massimo. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+assume(ω>0)$ 
+T : 2*%pi / ω$
+
+V_d : 12/T * integrate(v_c-v_b,t,0,T/12),expand;
+
+float(%);
+/* [wxMaxima: input   end   ] */
+/* [wxMaxima: question  start ] */
+Question #1
+/* [wxMaxima: question  end   ] */
+/* [wxMaxima: answer  start ] */
+positive;
+/* [wxMaxima: answer  end   ] */
+
+
+/* [wxMaxima: comment start ]
+Si ha quindi un valore medio in uscita pari a 3.34 volte il valore efficace della stellata in ingresso.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: comment start ]
+Occupiamoci ora di analizzare l'andamento delle correnti di linea. Quando D1 e D6 sono in conduzione, la corrente
+di linea Ia è pari ad Id, è invece pari a zero quando i due diodi sono interdetti. Tuttavia quando D4 e D5 sono in
+conduzione sulla fase a circola una corrente pari a -Id. Si può fare lo stesso ragionamento anche per le altre fasi
+ma secondo me risulta più esemplificativo mostrare l'andamento graficamente.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+i_a : if v_a > v_b and v_a > v_c then I_d 
+         elseif v_a < v_b and v_a < v_c then -I_d
+          else 0$
+i_b : if v_b > v_a and v_b > v_c then I_d 
+         elseif v_b < v_a and v_b < v_c then -I_d
+          else 0$
+i_c : if v_c > v_a and v_c > v_b then I_d 
+         elseif v_c < v_a and v_c < v_b then -I_d
+          else 0$
+
+V : 1/sqrt(2)$ ω : 1$  I_d : 1$
+wxplot2d(i_a,[t,0,4*%pi],[title,"First phase current"],[ytics,2]);
+wxplot2d(i_b,[t,0,4*%pi],[title,"Second phase current"],[color,green],[ytics,2]);
+wxplot2d(i_c,[t,0,4*%pi],[title,"Third phase current"],[color,red],[ytics,2]);
+kill(V,ω,I_d)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Dal grafico della corrente è facile osservare che il valore efficace delle correnti di linea è pari a √2/3 I_d,
+perche le correnti di linea sono diverse da zero solo per 2/3 del periodo, quando sono diverse da zero 
+sono pari a ±I_d. 
+
+Le correnti di linea godono di due simmetrie: simmetria dispari e simmetria di semionda, quando queste
+due simmetrie si verificano contemporaneamente si dice che il segnale gode di simmetria dispari di
+quarto d'onda. Questa simmetria implica che tutte le componenti in coseno siano nulle e che sono le
+componendi dispari in seno dello sviluppo in serie di Fourier siano non nulle.
+Inoltre è possibile calcolare i coefficienti dello sviluppo su un quarto del periodo totale. Calcolando i coefficienti
+per la fase a (per le altre fasi sarà analogo) in valore efficace otteniamo:
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+I_ak : 8/T * integrate(sqrt(1/2)*I_d*sin(ω*k*t),t,T/12,T/4), expand;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+è facile osservare che la componente continua è nulla, come d'altronde ci aspettavamo, l'ampiezza della prima
+armonica in valore efficace è invece pari al 78% della I_d. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+I_ak, k = 1, ratsimp;
+I_a1 : float(%);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Plottiamo lo spettro per farci un'idea della distorsione armonica
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+load("wx_qfft.mac")$
+V_s : 1.0$ I_d : 0.5$ ω : 2*%pi*50$
+spectrum(cons(0.0,makelist((if evenp(k) then 0.0 else ev(I_ak)), k, 1, 26)),2.5,0.5);
+kill(V_s,I_d,ω,i_s,v_d)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+vediamo che tutte le armoniche multiple di 3 sono nulle, ciò comporta una notevole riduzione del THD.
+Dal grafico che segue notiamo che la prima armonica di corrente è perfettamente in fase con la
+tensione stellata di ingresso. Pertanto l displacement power factor è pari uno. DPF = 1.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V : 1/sqrt(2)$ ω : 1$  I_d : 0.5$
+wxplot2d([sqrt(2)*I_a1*sin(ω*t),i_a,v_a],[t,0,4*%pi],[legend,"first current harmonic","line current","phase voltage"],[ytics,1.5]);
+kill(V,ω,I_d)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Possiamo agevolmente calcolare il power factor,
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+I_a : sqrt(2/3)*I_d$
+PF : I_a1/I_a, float;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Dove con I_a abbiamo indicato il valore efficace della corrente nela fase a. 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: section start ]
+Raddrizzatori Controllati
+   [wxMaxima: section end   ] */
+
+
+/* [wxMaxima: section start ]
+Convertitori DC-DC
+   [wxMaxima: section end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Convertitore Abbassatore (buck)
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Come il nome suggerisce il convertitore buck fornisce una tensione media in uscita inferiore
+a quella in ingresso. E' una topologia tipicamente usata per gli alimentatori stabilizzati in cc
+e per azionamenti di motori sempre in corrente continua.
+Naturalmente la conservazione dell'energia deve sempre essere rispettata, quindi ad un
+abbassamento di tensione corrisponde un aumento di corrente media, ipotizzando tutti gli
+elementi del circuito privi di perdite.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: caption start ]
+
+   [wxMaxima: caption end   ] */
+/* [wxMaxima: image   start ]
+jpg
+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
+   [wxMaxima: image   end   ] */
+
+/* [wxMaxima: comment start ]
+Ipotizziamo il circuito essere a regime medio, cioè i valori medi delle grandezze interessanti
+non cambia tra un periodo e il successivo. Quindi assumiamo il condensatore di uscita C essere
+mediamente carico alla tensione Vo.
+Se chiudiamo l'interruttore SW, il diodo di libera circolazione D è polarizzato inversamente quindi
+possiamo trattarlo alla stregua di un circuito aperto.
+La corrente Id circola tutta nell'induttore e si richiude nella batteria attraverso la resistenza di carico.
+Quando L è Attraversato da corrente esso immagazzina energia generando un campo magnetico
+attorno a se. Quando l'Interruttore viene improvvisamente chiuso, questa energia magnetica deve
+essere sprigionata, questo produce un picco di tensione negativa ai capi dell'induttore che fa polarizzare
+direttamente il diodo che quindi entra in conduzione.
+Un modo un po' più matematico per vedere la stessa cosa è analizzare l'equazione caratteristica dell'induttore
+se la corrente decresce istantaneamnte da un certo valore positivo a 0, la pendenza della curva nel punto di
+commutazione sarà infinitamente negativa, quindi una delta di dirac negativa.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+v_L : if mod(t,1) < D*T then V_d -V_o else -V_o $
+i_L : if mod(t,1) < D*T then (V_d-V_o)/L*mod(t,1)+I_min else (-V_o*mod(t,1)+V_o)/L+I_min$
+
+
+V_d : 1$  D : 0.75$ T : 1$ V_o : 0.75$ L : 1$ I_min : 0.025$
+wxplot2d([v_L,i_L],[t,0,2*T],[legend,"inductor voltage","inductor current"]);
+kill(V_d,D,T,V_o)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Durante il tempo Ton = D*T ai capi dell'induttore c'è la tensione Vd-Vo, essendo Vd>Vo (abbassatore) la derivata
+ella corrente che attraversa l'induttore è positiva, quindi tale corrente crescerà linearmente con pendenza (Vd-Vo)/L.
+All'istante D*T lo switch si apre, il diodo entra in conduzione e la tensione v_L diventa -Vo. La corrente passa dal suo
+valore massimo a quello minimo I_min nel tempo Toff = (1-D)*T.
+
+A regime la tensione media hai capi dell'induttore deve essere nulla, quindi
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+(V_d-V_o)*D*T=V_o*(1-D)*T;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Risolvendo rispetto a D otteniamo la funzione ingresso-uscita del nostro convertitore.  
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+solve(%,D)[1]$ rhs(%)=lhs(%);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Considerando l'idealità del circuito, esse non sarà affetto da perdite di potenza, ergo possiamo scrivere un bilancio 
+energetico per ricavare informazioni utili.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_d*I_d = V_o*I_o;
+%/(I_d*V_o);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Sostituendo il risultato precedente otteniamo 
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V_o/V_d=D;
+I_o/I_d = 1/D;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Da qua vediamo che il convertitore buck si comporta come un trasformatore con rapporto di trasformazione 0≤D≤1.  
+   [wxMaxima: comment end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$
